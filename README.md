@@ -1,3 +1,13 @@
+# todos
+
+- [ ] remove test files from git history
+- [ ] the image size is the video size
+- [ ] limit file types
+- [ ] fix responsive
+- [ ] add a progress bar
+- [ ] preview the video
+- [ ] write e2e tests
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).

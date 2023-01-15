@@ -8,9 +8,9 @@
 	</main>
 
 	<footer>
-		<p>Contribute on the <a href="https://githube.com/sylvain-reynaud">github repo</a></p>
+		<p>Contribute on the <a href="https://github.com/sylvain-reynaud/image-plus-audio">github repo</a></p>
 	</footer>
-</div>
+</div>	
 
 <style>
 	.app {
