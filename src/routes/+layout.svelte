@@ -1,0 +1,43 @@
+<script>
+	import './styles.css';
+</script>
+
+<div class="app">
+	<main>
+		<slot />
+	</main>
+
+	<footer>
+		<p>Contribute on the <a href="https://githube.com/sylvain-reynaud">github repo</a></p>
+	</footer>
+</div>
+
+<style>
+	.app {
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+	}
+
+	main {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		padding: 1rem;
+		width: 100%;
+		max-width: 64rem;
+		margin: 0 auto;
+		box-sizing: border-box;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	footer {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 12px;
+	}
+</style>
