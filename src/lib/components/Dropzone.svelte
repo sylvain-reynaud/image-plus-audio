@@ -2,6 +2,8 @@
 	export let file: File | undefined;
 	export let inputId = 'file';
 	export let text = '';
+	export let accept: 'image/*' | 'audio/*' | 'video/*' | 'image/*,audio/*,video/*' | undefined = undefined;
+
 	let files: FileList;
 
 	$: console.log(files);
@@ -15,6 +17,7 @@
 			type="file"
 			name={inputId}
 			id={inputId}
+			accept={accept}
 		/>
 		<label for={inputId}>
 			{#if files}

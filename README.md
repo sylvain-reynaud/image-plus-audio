@@ -2,7 +2,6 @@
 
 - [ ] mock headline and description
 - [ ] ux: indictate 2Gb limit
-- [ ] ux: limit file types
 - [ ] ui: fix responsive
 - [ ] ci: lint, prettier
 - [ ] cd: deploy to vercel on push to main
