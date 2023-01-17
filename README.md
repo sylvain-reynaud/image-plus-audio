@@ -1,10 +1,11 @@
 # todos
 
-- [ ] remove test files from git history
-- [ ] the image size is the video size
-- [ ] limit file types
-- [ ] fix responsive
 - [ ] add a progress bar
+- [ ] limit file types
+- [ ] the image size is the video size
+- [ ] indictate 2BG limit
+- [ ] remove test files from git history
+- [ ] fix responsive
 - [ ] preview the video
 - [ ] write e2e tests
 

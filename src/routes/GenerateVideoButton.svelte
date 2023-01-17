@@ -1,12 +1,9 @@
 <script lang="ts">
-	import Dropzone from './Dropzone.svelte';
+	// const { createFFmpeg, fetchFile } = FFmpeg;
 	import { createFFmpeg, fetchFile } from '@ffmpeg/ffmpeg';
 	
 	export let imageFile: File;
 	export let audioFile: File;
-
-	$: console.log("image:", imageFile?.name, "audio:", audioFile?.name)
-
 
 	let merge_image_and_audio_loading = false;
 	async function merge_image_and_audio() {
@@ -14,6 +11,9 @@
 		// ffmpeg -r 1 -loop 1 -i image.jpg -i audio.wav -acodec copy -r 1 -shortest -vf scale=1280:1280 result.flv
 		const ffmpeg = createFFmpeg({
 			log: true,
+			progress: ({ ratio, time, duration }) => {
+				console.log('ratio', ratio, 'time', time, 'duration', duration);
+			},
 		});
 		await ffmpeg.load();
 		ffmpeg.FS('writeFile', imageFile.name, await fetchFile(imageFile));
@@ -70,7 +70,6 @@
 		border-radius: 15px;
 
 		background-color: #eef4fb;
-		/* width: 30vw; */
 		font-family: 'Fira Mono';
 		font-size: 1rem;
 	}
