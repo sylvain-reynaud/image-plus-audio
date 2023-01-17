@@ -1,18 +1,19 @@
 <script lang="ts">
-	// const { createFFmpeg, fetchFile } = FFmpeg;
-	import { createFFmpeg, fetchFile } from '@ffmpeg/ffmpeg';
+	const { createFFmpeg, fetchFile } = FFmpeg;
+	// import { createFFmpeg, fetchFile } from '@ffmpeg/ffmpeg';
 	
 	export let imageFile: File;
 	export let audioFile: File;
+	export let progressRatio = 0;
 
-	let merge_image_and_audio_loading = false;
+	export let isLoading = false;
 	async function merge_image_and_audio() {
-		merge_image_and_audio_loading = true;
+		isLoading = true;
 		// ffmpeg -r 1 -loop 1 -i image.jpg -i audio.wav -acodec copy -r 1 -shortest -vf scale=1280:1280 result.flv
 		const ffmpeg = createFFmpeg({
 			log: true,
-			progress: ({ ratio, time, duration }) => {
-				console.log('ratio', ratio, 'time', time, 'duration', duration);
+			progress: ({ ratio }) => {
+				progressRatio = ratio;
 			},
 		});
 		await ffmpeg.load();
@@ -48,13 +49,14 @@
 		a.href = url;
 		a.download = 'result.flv';
 		a.click();
-		merge_image_and_audio_loading = false;
+		isLoading = false;
+		progressRatio = 0;
 	}
 </script>
 
 <span>
-	<button on:click={merge_image_and_audio} disabled={merge_image_and_audio_loading}>
-		{#if merge_image_and_audio_loading}
+	<button on:click={merge_image_and_audio} disabled={isLoading}>
+		{#if isLoading}
 			Loading...
 		{:else}
 			Click here to generate the video
