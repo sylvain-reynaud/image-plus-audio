@@ -1,7 +1,7 @@
 # todos
 
 - [ ] mock headline and description
-- [ ] ux: indictate 2Gb limit
+- [ ] temps estimé
 - [ ] ui: fix responsive
 - [ ] ci: lint, prettier
 - [ ] cd: deploy to vercel on push to main

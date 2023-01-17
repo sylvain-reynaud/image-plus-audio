@@ -19,7 +19,7 @@
 <section>
 		<Dropzone bind:file={imageFile} inputId={"image"} text="an image" accept="image/*" />
 		<span>+</span>
-		<Dropzone bind:file={audioFile} inputId={"audio"} text="an audio" accept="audio/*"/>
+		<Dropzone bind:file={audioFile} inputId={"audio"} text="an audio" accept="audio/*" subtitle="< 2GB"/>
 		<span>=</span>
 		
 		{#if imageFile}

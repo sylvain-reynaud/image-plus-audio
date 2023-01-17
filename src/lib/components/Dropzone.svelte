@@ -3,6 +3,7 @@
 	export let inputId = 'file';
 	export let text = '';
 	export let accept: 'image/*' | 'audio/*' | 'video/*' | 'image/*,audio/*,video/*' | undefined = undefined;
+	export let subtitle: string | undefined = undefined;
 
 	let files: FileList;
 
@@ -26,22 +27,37 @@
 			Choose a {text ? text + ' ' : ''}file
 			{/if}
 		</label>
-
-
+		
+		{#if subtitle}
+			<span class="dropzone__subtitle">{subtitle}</span>
+		{/if}
+		
 	</div>
 </div>
 
 <style>
+	.dropzone {
+
+		height: 6vh;
+	}
 	input {
 		display: none;
 	}
 
 	label {
-		padding: 1rem;
+		padding: 1.5rem;
 		border: 2px dashed #364fc7;
 		border-radius: 15px;
 		color: #364fc7;
 
 		background-color: #eef4fb;
+
+		font-size: 3vh;
+	}
+
+	.dropzone__subtitle {
+		display: block;
+		font-size: medium;
+		text-align: center;
 	}
 </style>
