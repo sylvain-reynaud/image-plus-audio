@@ -1,13 +1,13 @@
 # todos
 
-- [ ] add a progress bar
-- [ ] limit file types
-- [ ] the image size is the video size
-- [ ] indictate 2BG limit
-- [ ] remove test files from git history
-- [ ] fix responsive
+- [ ] mock headline and description
+- [ ] ux: indictate 2Gb limit
+- [ ] ux: limit file types
+- [ ] ui: fix responsive
+- [ ] ci: lint, prettier
+- [ ] cd: deploy to vercel on push to main
+- [ ] cd: deploy to vercel prod on release
 - [ ] preview the video
-- [ ] write e2e tests
 
 # create-svelte
 
