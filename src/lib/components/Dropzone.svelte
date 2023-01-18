@@ -52,7 +52,11 @@
 
 		background-color: #eef4fb;
 
-		font-size: 3vh;
+		font-size: large;
+		
+		/* don't break */
+		white-space: nowrap;
+		
 	}
 
 	.dropzone__subtitle {
