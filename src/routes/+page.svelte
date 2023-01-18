@@ -12,7 +12,7 @@
 </script>
 
 <svelte:head>
-	<title>Home</title>
+	<title>image+audio=video</title>
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
