@@ -9,7 +9,7 @@
 	export let isLoading = false;
 	async function merge_image_and_audio() {
 		isLoading = true;
-
+		const finalFilename = `${removeExtension(audioFile.name)}.mp4`;
 		const changedImage = await changeImageResolution(imageFile);
 		console.log("changedImage:", changedImage);
 		// ffmpeg -r 1 -loop 1 -i image.jpg -i audio.wav -acodec copy -r 1 -shortest -vf scale=1280:1280 result.flv
@@ -39,10 +39,10 @@
 			'-shortest',
 			'-vf',
 			`scale=${changedImage.width}:${changedImage.height}`,
-			'result.flv'
+			finalFilename
 		);
 
-		const data = ffmpeg.FS('readFile', 'result.flv');
+		const data = ffmpeg.FS('readFile', finalFilename);
 
 		const url = URL.createObjectURL(
 			new Blob([data.buffer], { type: 'video/mp4' })
@@ -50,7 +50,7 @@
 
 		const a = document.createElement('a');
 		a.href = url;
-		a.download = 'result.flv';
+		a.download = finalFilename;
 		a.click();
 		isLoading = false;
 		progressRatio = 0;
@@ -118,6 +118,14 @@
 		const dataURL = canvas.toDataURL('image/jpeg');
 		const newFile: File = await fetch(dataURL).then((r) => r.blob()).then((blobFile) => new File([blobFile], file.name, { type: file.type }));
 		return {file: newFile, width: canvas.width, height: canvas.height};
+	}
+
+	function removeExtension(filename: string): string {
+		const extIndex = filename.lastIndexOf('.');
+		if (extIndex > 0) {
+			filename = filename.substring(0, extIndex);
+		}
+		return filename;
 	}
 </script>
 
