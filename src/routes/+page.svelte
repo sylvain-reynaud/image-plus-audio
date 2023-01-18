@@ -1,14 +1,14 @@
 <script lang="ts">
-  	import GenerateVideoButton from '$lib/components/GenerateVideoButton.svelte';
+	import GenerateVideoButton from '$lib/components/GenerateVideoButton.svelte';
 	import Dropzone from '$lib/components/Dropzone.svelte';
-    import ProgressBar from '$lib/components/ProgressBar.svelte';
-	
+	import ProgressBar from '$lib/components/ProgressBar.svelte';
+
 	let imageFile: File;
 	let audioFile: File;
 	let isLoading = false;
 	let progressRatio = 0;
 
-	$: console.log("image:", imageFile?.name, "audio:", audioFile?.name)
+	$: console.log('image:', imageFile?.name, 'audio:', audioFile?.name);
 </script>
 
 <svelte:head>
@@ -17,24 +17,27 @@
 </svelte:head>
 
 <section>
-		<Dropzone bind:file={imageFile} inputId={"image"} text="an image" accept="image/*" />
-		<span>+</span>
-		<Dropzone bind:file={audioFile} inputId={"audio"} text="an audio" accept="audio/*" subtitle="< 2GB"/>
-		<span>=</span>
-		
-		{#if imageFile}
-		<GenerateVideoButton
-			{imageFile}
-			{audioFile}
-			bind:isLoading={isLoading}
-			bind:progressRatio={progressRatio}/>
-		{/if}
+	<Dropzone bind:file={imageFile} inputId={'image'} text="an image" accept="image/*" />
+	<span>+</span>
+	<Dropzone
+		bind:file={audioFile}
+		inputId={'audio'}
+		text="an audio"
+		accept="audio/*"
+		subtitle="< 2GB"
+	/>
+	<span>=</span>
+
+	{#if imageFile}
+		<GenerateVideoButton {imageFile} {audioFile} bind:isLoading bind:progressRatio />
+	{/if}
 </section>
 <section id="progress">
 	{#if isLoading}
-	<ProgressBar value={progressRatio*100} max={100} color="#364fc7" />
+		<ProgressBar value={progressRatio * 100} max={100} color="#364fc7" />
 	{/if}
 </section>
+
 <style>
 	section {
 		display: flex;
