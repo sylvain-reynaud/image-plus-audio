@@ -1,7 +1,6 @@
 # todos
 
 - [ ] mock headline and description
-- [ ] temps estimé
 - [ ] ui: fix responsive
 - [ ] ci: lint, prettier
 - [ ] cd: deploy to vercel on push to main

@@ -42,6 +42,7 @@
 		border: 2px dashed #364fc7;
 		border-radius: 15px;
 		color: #364fc7;
+		cursor: pointer;
 
 		background-color: #eef4fb;
 
